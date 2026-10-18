@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Context Quest — a five-minute, three-player real-time cooperative mystery game.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "concurrently -k -n server,client -c yellow,cyan \"tsx watch server/index.ts\" \"vite\"",
     "build": "tsc --noEmit -p tsconfig.json && vite build",
