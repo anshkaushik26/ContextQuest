@@ -1,5 +1,7 @@
 # Context Quest
 
+**▶ Play it live: [contextquest.onrender.com](https://contextquest.onrender.com)**
+
 A short (about five minutes), real-time cooperative mystery for exactly three players.
 **Three witnesses. Nine clues. One shared truth.**
 
