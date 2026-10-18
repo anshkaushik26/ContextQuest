@@ -1,0 +1,66 @@
+.hand {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 34px 6px 10px;
+  perspective: 1200px;
+}
+.hand__slot {
+  position: relative;
+  flex: none;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  transform-origin: 50% 100%;
+}
+.hand__hit {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  display: block;
+  text-align: left;
+}
+.hand__hit:disabled {
+  cursor: default;
+}
+.hand__slot.is-selected .ev {
+  box-shadow:
+    0 0 0 3px var(--brass),
+    0 0 40px 4px rgba(226, 182, 107, 0.45),
+    0 40px 60px -20px rgba(0, 0, 0, 0.9);
+}
+.hand--select .hand__slot:not(.is-selected) .ev {
+  filter: saturate(0.85);
+}
+.hand.is-locked .hand__slot:not(.is-gone) .ev {
+  filter: saturate(0.7) brightness(0.85);
+}
+.hand__slot.is-gone {
+  pointer-events: none;
+}
+.hand__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 34px;
+}
+@media (max-width: 1240px) {
+  .hand {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    margin: 0 calc(var(--gutter) * -1);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    scrollbar-width: thin;
+  }
+  .hand__slot {
+    scroll-snap-align: center;
+  }
+}

@@ -1,0 +1,284 @@
+.home {
+  min-height: 100dvh;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 48px;
+  display: flex;
+  flex-direction: column;
+}
+.home__top {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home__hero {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: center;
+  padding: 24px 0 40px;
+}
+.home__title {
+  font-size: clamp(42px, 6.2vw, 84px);
+  font-weight: 500;
+  line-height: 0.98;
+  margin: 16px 0 20px;
+}
+.home__title em {
+  color: var(--brass);
+  font-weight: 400;
+}
+.home__lede {
+  max-width: 34em;
+  font-size: 17px;
+  color: var(--ink-2);
+}
+.home__lede b {
+  color: var(--ink);
+}
+.home__form {
+  margin-top: 28px;
+  padding: 22px;
+  max-width: 520px;
+  display: grid;
+  gap: 12px;
+}
+.home__label {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.home__actions {
+  display: grid;
+  gap: 12px;
+}
+.home__join {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+}
+.home__join .field {
+  height: 54px;
+}
+.home__rejoin {
+  justify-self: start;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  background: none;
+  border: 0;
+  color: var(--live);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 0;
+}
+.home__rejoin b {
+  font-family: var(--font-mono);
+}
+.home__error {
+  color: #ffb4aa;
+  font-size: 14px;
+}
+.home__status {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.home__side {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  min-width: 0;
+}
+.home__proverb {
+  margin: 0;
+  max-width: 24em;
+  text-align: center;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+.home__proverb blockquote {
+  position: relative;
+  margin: 0;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.home__proverb blockquote::before {
+  content: '“';
+  display: block;
+  font-size: 2.2em;
+  line-height: 0.6;
+  height: 0.45em;
+  color: var(--brass);
+  font-style: normal;
+}
+.home__proverb figcaption {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--brass);
+}
+.home__art {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  display: grid;
+  place-items: center;
+}
+.home__watch {
+  position: relative;
+  z-index: 2;
+  max-width: 280px !important;
+}
+.home__cards {
+  position: absolute;
+  inset: 0;
+}
+.home__card {
+  position: absolute;
+  width: 170px;
+  height: 220px;
+  padding: 14px;
+  border-radius: 5px;
+  background: var(--paper);
+  color: var(--paper-ink);
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  box-shadow: var(--shadow-paper);
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  animation: drift 9s ease-in-out infinite;
+}
+.home__card span {
+  justify-self: start;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: #2a2217;
+  color: #f1d9a4;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.home__card::after {
+  content: '';
+  margin-top: 6px;
+  height: 110px;
+  background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.13) 0 2px, transparent 2px 13px);
+}
+.home__card--a {
+  left: 2%;
+  top: 6%;
+  rotate: -12deg;
+}
+.home__card--b {
+  right: 0;
+  top: 2%;
+  rotate: 9deg;
+  animation-delay: -3s;
+}
+.home__card--c {
+  left: 30%;
+  bottom: -2%;
+  rotate: -3deg;
+  animation-delay: -6s;
+}
+@keyframes drift {
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+.home__steps {
+  list-style: none;
+  margin: 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.home__steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  align-items: baseline;
+}
+.home__stepnum {
+  grid-row: span 2;
+  font-size: 30px;
+  color: var(--brass);
+  font-style: italic;
+}
+.home__steps b {
+  font-size: 14px;
+}
+.home__steps span:last-child {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.boot {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  color: var(--ink-2);
+}
+.boot__spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--line-2);
+  border-top-color: var(--brass);
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 960px) {
+  .home__hero {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 8px;
+  }
+  .home__side {
+    order: -1;
+  }
+  .home__art {
+    height: 250px;
+  }
+  .home__proverb blockquote {
+    font-size: 20px;
+  }
+  .home__watch {
+    max-width: 170px !important;
+  }
+  .home__card {
+    width: 110px;
+    height: 140px;
+    font-size: 13px;
+  }
+  .home__card::after {
+    height: 60px;
+  }
+  .home__steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .home__join {
+    grid-template-columns: 1fr;
+  }
+}

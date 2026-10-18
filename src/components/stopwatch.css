@@ -1,0 +1,85 @@
+.sw {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55));
+}
+.sw--lg {
+  max-width: 230px;
+}
+.sw--md {
+  max-width: 170px;
+}
+.sw--sm {
+  max-width: 54px;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
+}
+.sw-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.sw-numeral {
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  font-weight: 600;
+  fill: #2a2216;
+  font-variant-numeric: lining-nums;
+}
+.sw-subnum {
+  font-family: var(--font-display);
+  font-size: 6.5px;
+  font-weight: 700;
+  fill: #2a2216;
+}
+.sw-brand {
+  font-family: var(--font-display);
+  font-size: 7.2px;
+  letter-spacing: 0.32em;
+  font-weight: 600;
+  fill: #3b2d16;
+}
+.sw-sub {
+  font-family: var(--font-mono);
+  font-size: 3.6px;
+  letter-spacing: 0.18em;
+  fill: #6b5a3c;
+}
+.sw-digits {
+  font-family: var(--font-mono);
+  font-size: 15.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  fill: #f2d394;
+  font-variant-numeric: tabular-nums;
+  transition: fill 0.3s;
+}
+.sw-crown {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.sw-crown.is-pressed {
+  animation: crown-press 0.42s var(--ease-out);
+}
+@keyframes crown-press {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  45% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.sw[data-state='idle'] .sw-digits {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+.sw[data-state='closed'] .sw-digits {
+  fill: #f8dfab;
+}

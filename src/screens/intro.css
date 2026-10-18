@@ -1,0 +1,141 @@
+.intro {
+  position: relative;
+  min-height: calc(100dvh - var(--topbar-h) - 100px);
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--r-4);
+  border: 1px solid var(--line);
+  background: radial-gradient(ellipse at 50% 100%, #10162a, #05070d 70%);
+  padding: 40px clamp(20px, 5vw, 64px);
+  perspective: 900px;
+}
+.intro__stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.intro__stage svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48%;
+  opacity: 0.9;
+}
+.intro__beams {
+  transition: opacity 0.12s;
+  animation: beams-flicker 0.5s steps(1) 1.4s 2;
+}
+.intro__lamp {
+  fill: #fff3d4;
+  filter: drop-shadow(0 0 8px #ffe0a0);
+}
+.intro.is-dark .intro__beams {
+  opacity: 0;
+}
+.intro.is-dark .intro__lamp {
+  fill: #2a3045;
+  filter: none;
+}
+@keyframes beams-flicker {
+  0% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.1;
+  }
+}
+.intro__copy {
+  position: relative;
+  max-width: 760px;
+  display: grid;
+  gap: 14px;
+}
+.intro__casenum {
+  display: flex;
+  gap: 18px;
+}
+.intro__title {
+  font-size: clamp(42px, 7vw, 96px);
+  font-weight: 600;
+  line-height: 0.95;
+  text-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+}
+.intro__meta {
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.intro__symptoms {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.intro__symptoms li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  font-size: 17px;
+}
+.intro__time {
+  font-family: var(--font-mono);
+  color: var(--brass);
+  font-size: 14px;
+}
+.intro__brief {
+  color: var(--ink-2);
+  font-style: italic;
+}
+.intro__dilemma {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-style: italic;
+  color: var(--brass-hi);
+}
+.intro__role {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+}
+.intro__roleicon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #0b0f1a;
+  background: var(--pc);
+  box-shadow: 0 0 0 6px color-mix(in oklab, var(--pc) 20%, transparent);
+}
+.intro__rolename {
+  font-size: 24px;
+  margin: 4px 0;
+}
+.intro__waiting {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #a9f2f5;
+  font-size: 14px;
+}
+.intro__skip {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+@media (max-width: 720px) {
+  .intro__role {
+    grid-template-columns: auto 1fr;
+  }
+  .intro__role > :last-child {
+    grid-column: 1 / -1;
+  }
+}

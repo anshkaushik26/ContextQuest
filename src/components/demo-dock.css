@@ -1,0 +1,115 @@
+.demo-dock {
+  position: fixed;
+  right: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 64;
+  display: grid;
+  justify-items: end;
+}
+.demo-dock__start {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px dashed rgba(92, 225, 230, 0.55);
+  background: rgba(8, 14, 26, 0.85);
+  color: #a9f2f5;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.demo-dock__start:hover {
+  border-style: solid;
+  background: rgba(92, 225, 230, 0.12);
+}
+.demo-dock__panel {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(92, 225, 230, 0.45);
+  background: rgba(8, 14, 26, 0.92);
+  box-shadow: 0 16px 36px -14px rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  min-width: 210px;
+}
+.demo-dock__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.demo-dock__tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--live);
+}
+.demo-dock__end {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.demo-dock__next {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 230, 180, 0.6);
+  background: linear-gradient(180deg, #f6d99e, #e2b66b 50%, #b88a40);
+  color: #1b1306;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+.demo-dock__next:disabled {
+  opacity: 0.6;
+}
+.demo-dock__wait {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #a9f2f5;
+  padding: 6px 2px;
+}
+.demo-dock__err {
+  font-size: 11.5px;
+  color: #ffb4aa;
+  max-width: 220px;
+}
+/* on phones the chat button owns the corner during the board */
+@media (max-width: 960px) {
+  .demo-dock.has-chat {
+    bottom: calc(86px + env(safe-area-inset-bottom, 0px));
+  }
+}
+.seat__demo,
+.dossier__demo {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--live);
+  border: 1px dashed rgba(92, 225, 230, 0.55);
+  font-weight: 500;
+}

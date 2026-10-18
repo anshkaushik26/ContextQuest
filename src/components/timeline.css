@@ -1,0 +1,318 @@
+.tl {
+  position: relative;
+}
+.tl__axis {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+}
+.tl__axisline {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--brass-lo), var(--brass), var(--brass-lo));
+  position: relative;
+}
+.tl__axisline::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: -4px;
+  border: 4.5px solid transparent;
+  border-left-color: var(--brass);
+}
+.tl__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  position: relative;
+}
+.tl--h .tl__list::before {
+  /* the chronological track the tiles sit on */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 27px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(226, 182, 107, 0.5) 0 8px, transparent 8px 14px);
+  animation: track-flow 1.2s linear infinite;
+  z-index: 0;
+}
+@keyframes track-flow {
+  to {
+    background-position: 14px 0;
+  }
+}
+.tile {
+  --hc: transparent;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 8px;
+  padding: 10px 12px 10px;
+  min-height: 210px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #1f2945, #141b30);
+  border: 1px solid var(--line-2);
+  box-shadow: var(--shadow-1);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.25s,
+    opacity 0.2s;
+}
+.tile:hover {
+  border-color: var(--line-brass);
+}
+.tile__top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tile__num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1308;
+  background: radial-gradient(circle at 35% 30%, #fbe5b6, #e2b66b 55%, #a87b33);
+  box-shadow: 0 0 0 4px var(--bg-1), 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.tile__grip {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: var(--ink-4);
+  cursor: grab;
+  padding: 6px 2px;
+  touch-action: none;
+  margin-left: auto;
+  border-radius: 6px;
+}
+.tile__icon {
+  color: var(--brass);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(226, 182, 107, 0.1);
+  order: 3;
+}
+.tile__title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 4px;
+}
+.tile__evidence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.tchip {
+  --pc: var(--ink-3);
+  appearance: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid color-mix(in oklab, var(--pc) 60%, transparent);
+  color: var(--pc);
+  background: color-mix(in oklab, var(--pc) 10%, transparent);
+  cursor: zoom-in;
+}
+.tchip--brief {
+  --pc: var(--brass);
+  cursor: default;
+}
+.tchip--none {
+  border-style: dashed;
+  cursor: default;
+  font-weight: 400;
+}
+.tile__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tile__moves {
+  display: flex;
+  gap: 4px;
+}
+.tile__btn,
+.tile__doubt {
+  appearance: none;
+  height: 28px;
+  min-width: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0 6px;
+  border-radius: 7px;
+  border: 1px solid var(--line-2);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.tile__btn:hover:not(:disabled),
+.tile__doubt:hover {
+  border-color: var(--line-brass);
+  color: var(--ink);
+}
+.tile__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.tile__discuss {
+  margin-left: auto;
+  margin-right: 4px;
+  color: var(--brass-hi);
+}
+.tile__doubt.is-on {
+  border-color: #ffb25c;
+  color: #ffcb8a;
+}
+.tile__doubtdot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.tile__who {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -11px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #0a0e1a;
+  border: 1px solid var(--hc);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 2;
+}
+.tile.is-placeholder {
+  opacity: 0.25;
+  border-style: dashed;
+  border-color: var(--brass);
+}
+.tile.is-picked {
+  border-color: var(--brass);
+  box-shadow: 0 0 0 2px var(--brass), 0 18px 40px -16px rgba(226, 182, 107, 0.6);
+  transform: translateY(-4px);
+}
+.tile.is-target {
+  cursor: copy;
+}
+.tile.is-target:hover {
+  border-color: var(--live);
+  box-shadow: 0 0 0 2px rgba(92, 225, 230, 0.4);
+}
+.tile.is-held {
+  border-color: var(--hc);
+  box-shadow: 0 0 0 2px var(--hc);
+  cursor: not-allowed;
+}
+.tile.is-flash {
+  animation: tile-flash 1.6s var(--ease-out);
+}
+@keyframes tile-flash {
+  0%,
+  30% {
+    box-shadow: 0 0 0 2px var(--hc), 0 0 30px var(--hc);
+    border-color: var(--hc);
+  }
+}
+.tile.is-disputed {
+  border-style: dashed;
+  border-color: rgba(255, 178, 92, 0.6);
+}
+.tile.is-disputed .tile__num {
+  background: radial-gradient(circle at 35% 30%, #ffe0b5, #ffb25c 60%, #b06d1f);
+}
+.tile--ghost {
+  position: fixed;
+  z-index: 75;
+  pointer-events: none;
+  min-height: 0;
+  cursor: grabbing;
+  transform: rotate(-2.5deg) scale(1.05);
+  border-color: var(--brass);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9), 0 0 0 2px var(--brass);
+  grid-template-rows: auto 1fr;
+}
+.tl__hint {
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+/* vertical (tablet / phone) */
+.tl--v .tl__axis {
+  display: none;
+}
+.tl--v .tl__list {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding-left: 20px;
+}
+.tl--v .tl__list::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--brass-lo), var(--brass), var(--brass-lo));
+}
+.tl--v .tile {
+  min-height: 0;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  padding: 12px;
+}
+.tl--v .tile__top {
+  grid-row: span 3;
+  flex-direction: column;
+  align-items: center;
+}
+.tl--v .tile__grip {
+  margin-left: 0;
+  order: 5;
+  padding: 10px 6px;
+}
+.tl--v .tile__icon {
+  order: 2;
+}
+.tl--v .tile__who {
+  left: auto;
+  right: 10px;
+  bottom: auto;
+  top: -10px;
+}
